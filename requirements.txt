@@ -1,0 +1,10 @@
+python-dotenv
+youtube-transcript-api
+langchain
+langchain_text_splitters
+langchain_huggingface 
+psycopg2-binary
+huggingface-hub
+langchain_postgres
+langchain_core
+streamlit
