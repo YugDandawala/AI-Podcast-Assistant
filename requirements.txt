@@ -1,10 +1,10 @@
 python-dotenv
 youtube-transcript-api
 langchain
-langchain_text_splitters
-langchain_huggingface 
+langchain-text-splitters
+langchain-huggingface 
 psycopg2-binary
 huggingface-hub
-langchain_postgres
-langchain_core
+langchain-postgres
+langchain-core
 streamlit
