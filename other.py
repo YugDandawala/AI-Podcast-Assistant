@@ -49,7 +49,7 @@ llm = HuggingFaceEndpoint(
     temperature = 0.6
 )
 
-model = ChatHuggingFace(llm=llm)
+model = ChatHuggingFace(llm = llm)
 
 # SYSTEM PROMPT
 SYSTEM_PROMPT = SystemMessage(content = """
@@ -154,7 +154,7 @@ if load_button:
     st.success(f"✅ Transcript loaded! ({len(transcript.split())} words)")
 
     with st.spinner("✂️ Splitting text into chunks..."):
-        splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+        splitter = RecursiveCharacterTextSplitter(chunk_size = 1000, chunk_overlap = 200)
         chunks = splitter.create_documents([transcript])
 
     with st.spinner("🧠 Creating embeddings and vector database..."):
@@ -163,10 +163,10 @@ if load_button:
         )
 
         db = PGVector.from_documents(
-            embedding=embeddings,
-            documents=chunks,
-            collection_name=collection,
-            connection=connectDB
+            embedding = embeddings,
+            documents = chunks,
+            collection_name = collection,
+            connection = connectDB
         )
 
         st.session_state.retriever = db.as_retriever(search_type="mmr", search_kwargs={"k": 4})
@@ -178,7 +178,7 @@ if load_button:
 # -----------------------------
 st.subheader("💬 Ask Questions About This Podcast")
 
-query = st.text_input("Type your question:", placeholder="Ask anything about the podcast...")
+query = st.text_input("Type your question:", placeholder = "Ask anything about the podcast...")
 
 def format_docs(retrieved_docs):
     return "\n\n".join(doc.page_content for doc in retrieved_docs)
@@ -216,12 +216,12 @@ def run_query(question):
 
 # Handle query submission
 if query:
-    st.session_state.chat_history.append(HumanMessage(content=query))
+    st.session_state.chat_history.append(HumanMessage(content = query))
 
     with st.spinner("🤖 Generating answer..."):
         answer = run_query(query)
 
-    st.session_state.chat_history.append(AIMessage(content=answer))
+    st.session_state.chat_history.append(AIMessage(content = answer))
     
     # Auto-scroll to bottom
     st.rerun()
