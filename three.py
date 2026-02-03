@@ -95,10 +95,10 @@ if load_button:
         )
 
         db = PGVector.from_documents(
-            embedding=embeddings,
-            documents=chunks,
-            collection_name=collection,
-            connection=connectDB
+            embedding = embeddings,
+            documents = chunks,
+            collection_name = collection,
+            connection = connectDB
         )
 
         st.session_state.retriever = db.as_retriever(search_type="mmr", search_kwargs={"k": 4})
@@ -141,12 +141,12 @@ def run_query(question):
 
 # When user presses Enter
 if query:
-    st.session_state.chat_history.append(HumanMessage(content=query))
+    st.session_state.chat_history.append(HumanMessage(content = query))
 
     with st.spinner("Generating answer..."):
         answer = run_query(query)
 
-    st.session_state.chat_history.append(AIMessage(content=answer))
+    st.session_state.chat_history.append(AIMessage(content = answer))
 
 # -----------------------------
 # DISPLAY CHAT HISTORY
