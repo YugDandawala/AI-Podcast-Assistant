@@ -19,9 +19,9 @@ st.write("It is not fined tuned model so it can answer all questions +  podcast 
 # STREAMLIT PAGE SETTINGS
 # -----------------------------
 st.set_page_config(
-    page_title="Podcast AI Assistant",
-    layout="wide",
-    page_icon="🎙️"
+    page_title = "Podcast AI Assistant",
+    layout = "wide",
+    page_icon = "🎙️"
 )
 
 st.title("🎙️ Podcast AI Assistant")
@@ -31,7 +31,7 @@ st.sidebar.header("📥 Podcast Input")
 
 video_id = st.sidebar.text_input(
     "YouTube Podcast ID",
-    placeholder="Enter video ID..."
+    placeholder = "Enter video ID..."
 )
 
 load_button = st.sidebar.button("Load Podcast Transcript")
@@ -48,7 +48,7 @@ collection = "embedded_vectors"
 connectDB = f"postgresql+psycopg2://{user}:{password}@{host}:5432/{database}"
 
 llm = HuggingFaceEndpoint(
-    repo_id="meta-llama/Llama-3.1-8B-Instruct",
+    repo_id = "meta-llama/Llama-3.1-8B-Instruct",
     task="chat-completion",
     temperature=0.6
 )
